@@ -25,7 +25,7 @@ const checkEnvironmentVariables = () => {
 const checkConnectionDatabase = async () => {
     try {
         const connection = await database.getConnection();
-        console.log('successful connection to the database.');
+        console.log('successfull connection to the database.');
         connection.release();
         return true;
     } catch (error) {
@@ -33,7 +33,7 @@ const checkConnectionDatabase = async () => {
         return false;
     };
 };
-
+ 
 const startServer = (async () => {
     try {
         checkEnvironmentVariables();
@@ -47,12 +47,18 @@ const startServer = (async () => {
             } else {
                 setupServer(app);
                 app.listen(process.env.LOCALHOST_PORT, () => {
-                    console.log(`Server running on port ${process.env.LOCALHOST_PORT}`);
+                    setTimeout(() => {
+                        console.log(`Server initializing...`);
+                    },1000); 
+                    setTimeout(() => {
+                        console.log(`access: http://localhost:${process.env.LOCALHOST_PORT}/`);
+                    },2000);
                 });
             };
+            
         };
     } catch (error) {
         console.error(error.message);
         process.exit(1);
-    };
+    }; 
 })();

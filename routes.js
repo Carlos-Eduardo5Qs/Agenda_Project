@@ -3,12 +3,9 @@ const router = express.Router();
 
 const validateDate = require('./src/middlewares/validadeDate');
 
-const formularyLogin = require('./src/controllers/formularyLogin');
-const authenticate = require('./src/controllers/authenticate');
+const login = require('./src/controllers/formularyLogin');
 
-
-router.get('/',formularyLogin.formularyLogin);
-
-router.post('/login',validateDate,authenticate.authenticate);
+router.get('/',login.formulary);
+router.post('/login',validateDate,login.logInto);
 
 module.exports = router;

@@ -55,7 +55,6 @@ const startServer = (async () => {
                     },2000);
                 });
             };
-            
         };
     } catch (error) {
         console.error(error.message);

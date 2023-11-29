@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-const pageLogin = require('./src/controllers/login');
-const login = require('./src/controllers/login');
+const validateDate = require('./src/middlewares/validadeDate');
 
-router.get('/', pageLogin.formularyLogin);
+const formularyLogin = require('./src/controllers/formularyLogin');
+const authenticate = require('./src/controllers/authenticate');
 
-router.post('/login',login.login)
+
+router.get('/',formularyLogin.formularyLogin);
+
+router.post('/login',validateDate,authenticate.authenticate);
 
 module.exports = router;

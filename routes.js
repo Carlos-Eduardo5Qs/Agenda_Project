@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const validateDate = require('./src/middlewares/validadeDate');
+const home = require('./src/controllers/homeController');
+const formularyCreateAccount = require('./src/controllers/formularyRegisterController');
 
-const login = require('./src/controllers/formularyLogin');
-
-router.get('/',login.formulary);
-router.post('/login',validateDate,login.logInto);
+router.get('/', home.homePage);
+router.get('/register',formularyCreateAccount.formulary);
+router.post('/createAccount',formularyCreateAccount.createAccount);
 
 module.exports = router;

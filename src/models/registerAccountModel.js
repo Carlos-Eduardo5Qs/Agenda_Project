@@ -1,6 +1,6 @@
 const database = require('../config/database');
 
-const searshUser = async (body) => {
+const registerAccount = async (body) => {
     try {
         console.log(body);
     } catch (error) {
@@ -8,5 +8,5 @@ const searshUser = async (body) => {
     };
 };
 
-module.exports = searshUser;
+module.exports = registerAccount;
 

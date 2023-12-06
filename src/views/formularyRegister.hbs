@@ -1,14 +1,32 @@
-{{>errorMessages}}
 <form action="/createAccount" method="post">
-    <div>
-        <label>Email:</label>
-        <input type="email" name="email" placeholder="Insira seu email">
+    <div id="">
+        <div>
+            <label>Nome:</label><br>
+            <input type="text" placeholder="Seu nome" name="name" value="{{formData.name}}">
+        </div>
+        <div>
+            <label>Sobrenome:</label><br>
+            <input type="text" placeholder="Seu sobrenome" name="surname" value="{{formData.surname}}">
+        </div>
     </div>
     <div>
-        <label>Senha:</label>
-        <input type="password" name="password" placeholder="Insira sua senha">
+        <label>Email:</label><br>
+        <input type="email" name="email" placeholder="Insira seu email" value="{{formData.email}}">
     </div>
     <div>
-        <input type="submit" value="Enviar">
+        <label>Nascimento:</label><br>
+        <input type="date" name="birth" value="{{formData.birth}}">
+    </div>
+    <div>
+        <label>Senha:</label><br>
+        <input type="password" name="password" placeholder="Insira sua senha" value="{{formData.password}}">
+    </div>
+    <div>
+        <label>Confime sua senha:</label><br>
+        <input type="password" name="confirmPassword" placeholder="Confirme sua senha" value="{{formData.confirmPassword}}">
+    </div>
+    <div>
+        <button type="submit">Criar conta</button>
     </div>
 </form>
+{{>errorMessages}}

@@ -1,7 +1,7 @@
 const validator = require('validator');
 
 const validateEmail = (email) => {
-    return validator.isEmail(body.email);
+    return validator.isEmail(email);
 };
 
 const validatePassword = (password) => {
@@ -17,7 +17,7 @@ const validateData = (req, res, next) => {
     if (!body.email) missingFields.push('Email');
     if (!body.birth) missingFields.push('Nascimento');
     if (!body.password) missingFields.push('Senha');
-    if (!body.confirmPassword) missingFields.push('Campo para confirmar a senha');
+    if (!body.confirmPassword) missingFields.push('Confirme sua senha');
 
     if (missingFields.length > 0) {
         const missingFieldsMessage = `Os seguintes campos devem ser preenchidos: ${missingFields.length === 1
@@ -27,7 +27,7 @@ const validateData = (req, res, next) => {
         res.locals.messages = req.flash('error', missingFieldsMessage);
         req.session.formData = body;
         return res.redirect('/register');
-    }
+    };
 
     if (!validateEmail(body.email)) {
         res.locals.messages = req.flash('error', 'email inválido');
